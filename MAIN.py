@@ -27,19 +27,21 @@ def main():
 
     while True:
         show_menu()
-        choice = input("Выберите действие (1-4): ")
+        choice = int(input("Выберите от 1-4"))
+        try:
+            match choice:
+                case 1:
+                    show_todo_list()
+                case 2:
+                    add_task()        
+                case 3:
+                    remove_task()
+                case 4:
+                    print("bye bye")
+                    
+        except choice > 4:
+            print("Неправильное число")
 
-        if choice == "1":
-            show_todo_list()
-        elif choice == "2":
-            add_task()
-        elif choice == "3":
-            remove_task()
-        elif choice == "4":
-            print("До свидания!")
-            break
-        else:
-            print("Недопустимый выбор. Пожалуйста, введите число от 1 до 4.")
 
 if __name__ == "__main__":
     main()
